@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "steps": [
+    { "requirement": "U1-浏览器客户端：页面标题区域正常布局", "action": "layout", "selector": "#page-title" },
+    { "requirement": "U1-多房间：房间面板与加入控件正常布局", "action": "layout", "selector": "#room-panel" },
+    { "requirement": "U1-多房间：把房间名改为 r1", "action": "fill", "selector": "#room-input", "value": "r1" },
+    { "requirement": "U1-多房间：点击加入房间", "action": "click", "selector": "#join-btn" },
+    { "requirement": "U1-多房间：状态栏显示已进入房间 r1", "action": "text", "selector": "#status", "value": "r1" },
+    { "requirement": "U1-游戏画面：棋盘画布尺寸与位置正常", "action": "layout", "selector": "#board" },
+    { "requirement": "U1-游戏画面：棋盘完成绘制", "action": "canvas-painted", "selector": "#board" },
+    { "requirement": "U1-控制面板：控制区与食物拉杆正常布局", "action": "layout", "selector": "#controls-panel" },
+    { "requirement": "U1-食物拉杆：食物数量滑杆可见可操作", "action": "layout", "selector": "#food-slider" },
+    { "requirement": "U1-食物拉杆：把食物数量拉到 9", "action": "fill", "selector": "#food-slider", "value": "9" },
+    { "requirement": "U1-食物拉杆：数值标签同步为 9", "action": "text", "selector": "#food-value", "value": "9" },
+    { "requirement": "U1-食物拉杆：食物数量变化后棋盘重绘", "action": "canvas-changed", "selector": "#board" },
+    { "requirement": "U1-速度三档：慢中快按钮组正常布局", "action": "layout", "selector": "#speed-group" },
+    { "requirement": "U1-速度三档：选择快档", "action": "click", "selector": "#speed-fast" },
+    { "requirement": "U1-空格暂停：按一次空格暂停", "action": "press", "selector": "body", "value": "Space" },
+    { "requirement": "U1-空格暂停：状态栏提示已暂停", "action": "text", "selector": "#status", "value": "已暂停" },
+    { "requirement": "U1-空格暂停：画面出现暂停遮罩", "action": "canvas-changed", "selector": "#board" },
+    { "requirement": "U1-空格暂停：再按一次空格继续游戏", "action": "press", "selector": "body", "value": "Space" },
+    { "requirement": "U1-空格暂停：状态栏恢复游戏进行中", "action": "text", "selector": "#status", "value": "游戏中" }
+  ]
+}

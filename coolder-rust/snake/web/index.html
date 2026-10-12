@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>多人贪吃蛇 · Multiplayer Snake</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>🐍 多人贪吃蛇</h1>
+    <span class="subtitle">Multiplayer Snake · WebSocket 实时对战</span>
+  </header>
+
+  <main class="wrap">
+    <!-- 加入房间面板 -->
+    <section id="setup" class="panel">
+      <h2>加入房间</h2>
+      <div class="form-grid">
+        <label for="roomInput">房间号</label>
+        <input id="roomInput" maxlength="24" placeholder="room1" value="room1" />
+        <label for="nameInput">玩家名</label>
+        <input id="nameInput" maxlength="12" placeholder="留空自动命名" />
+        <label for="speedSel">速度</label>
+        <select id="speedSel">
+          <option value="slow">慢速</option>
+          <option value="medium" selected>中速</option>
+          <option value="fast">快速</option>
+        </select>
+        <label for="foodSel">食物数量</label>
+        <input id="foodSel" type="number" min="0" max="40" value="5" />
+      </div>
+      <button id="joinBtn" class="btn primary">进入游戏</button>
+
+      <div class="lobby-row">
+        <h3>在线房间</h3>
+        <button id="refreshBtn" class="btn small">刷新</button>
+      </div>
+      <ul id="roomList" class="room-list"></ul>
+      <p id="serverStatus" class="hint">连接服务器中…</p>
+    </section>
+
+    <!-- 游戏主界面 -->
+    <section id="lobby" class="game-area hidden">
+      <div class="board-wrap">
+        <canvas id="board" width="1008" height="672"></canvas>
+        <div id="deathOverlay" class="overlay hidden">
+          <div class="overlay-card">
+            <h2>💀 你出局了</h2>
+            <p id="deathMsg"></p>
+            <button id="restartBtn" class="btn primary">重新开始 (R)</button>
+            <button id="watchBtn" class="btn">观战</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hud" id="hud">
+        <div class="hud-block">
+          <div class="hud-label">房间 / 玩家</div>
+          <div id="roomTitle" class="hud-value">room1</div>
+          <div id="meName" class="hud-value sub">—</div>
+        </div>
+        <div class="hud-block big">
+          <div class="hud-label">得分</div>
+          <div id="score" class="score">0</div>
+        </div>
+        <div class="hud-block">
+          <div class="hud-label">排行榜</div>
+          <ul id="leaderboard" class="leaderboard"></ul>
+        </div>
+        <div class="hud-block">
+          <div class="hud-label">食物数量 <span id="foodValue">5</span></div>
+          <input id="foodSlider" type="range" min="0" max="40" value="5" />
+        </div>
+        <div class="hud-block">
+          <div class="hud-label">速度</div>
+          <div id="speedGroup" class="speed-group"></div>
+        </div>
+        <button id="leaveBtn" class="btn">退出房间</button>
+        <p class="hint">方向键 / WASD 转向 · 空格暂停 · 撞墙或撞蛇即出局 · 死亡后按 R 重开</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="foot">纯后端权威模拟 · Go 标准库 WebSocket · 无第三方依赖</footer>
+
+  <script src="js/app.js?v=3"></script>
+</body>
+</html>

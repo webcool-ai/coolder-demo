@@ -1,0 +1,109 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #0b1120;
+  color: #e2e8f0;
+  font-family: system-ui, "PingFang SC", "Microsoft YaHei", sans-serif;
+  min-height: 100vh;
+}
+
+.hidden { display: none !important; }
+
+/* ---------- 大厅 ---------- */
+.lobby {
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh; padding: 16px;
+}
+.card {
+  background: #111a2e; border: 1px solid #24304d; border-radius: 16px;
+  padding: 28px; width: 400px; max-width: 100%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .5);
+}
+.card h1 { font-size: 26px; margin-bottom: 6px; }
+.sub { color: #7c8bb0; margin-bottom: 18px; font-size: 13px; }
+label { display: block; font-size: 13px; color: #93a2c4; margin: 12px 0 6px; }
+.card input {
+  width: 100%; padding: 10px 12px; border-radius: 10px;
+  border: 1px solid #2c3a5e; background: #0d1526; color: #e2e8f0;
+  font-size: 14px; outline: none;
+}
+.card input:focus { border-color: #4fc3f7; }
+button.primary {
+  margin-top: 18px; width: 100%; padding: 11px; border: 0; border-radius: 10px;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff; font-size: 15px; font-weight: 600; cursor: pointer;
+}
+button.primary:hover { filter: brightness(1.1); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.chip {
+  background: #1a2440; border: 1px solid #2c3a5e; color: #93c5fd;
+  border-radius: 999px; padding: 6px 12px; font-size: 12px; cursor: pointer;
+}
+.chip:hover { border-color: #4fc3f7; }
+.chip-empty { color: #5b6b8f; font-size: 12px; }
+.hint { margin-top: 16px; font-size: 12px; color: #64748b; line-height: 1.7; }
+.hint.center { text-align: center; }
+
+/* ---------- 游戏 ---------- */
+.game { max-width: 1040px; margin: 0 auto; padding: 14px; }
+.game header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.badge {
+  background: #111a2e; border: 1px solid #24304d;
+  padding: 6px 12px; border-radius: 999px; font-size: 13px;
+}
+.spacer { flex: 1; }
+#leaveBtn {
+  background: #1a2440; border: 1px solid #2c3a5e; color: #93a2c4;
+  border-radius: 10px; padding: 7px 14px; cursor: pointer; font-size: 13px;
+}
+
+.toolbar {
+  display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
+  background: #111a2e; border: 1px solid #24304d; border-radius: 12px;
+  padding: 10px 14px; margin-bottom: 10px;
+}
+.tool-label { font-size: 13px; color: #93a2c4; margin-right: 8px; white-space: nowrap; }
+.speed-group { display: flex; align-items: center; }
+.speed-btn {
+  background: #0d1526; border: 1px solid #2c3a5e; color: #93a2c4;
+  padding: 6px 14px; cursor: pointer; font-size: 13px;
+}
+.speed-btn:first-of-type { border-radius: 8px 0 0 8px; }
+.speed-btn:last-of-type { border-radius: 0 8px 8px 0; }
+.speed-btn + .speed-btn { border-left: 0; }
+.speed-btn.active { background: #2563eb; border-color: #2563eb; color: #fff; }
+.food-group { display: flex; align-items: center; flex: 1; min-width: 230px; }
+#foodSlider { flex: 1; accent-color: #f59e0b; cursor: pointer; }
+#foodCount { color: #fbbf24; }
+
+.main { display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-start; }
+.stage { position: relative; flex: 0 1 auto; }
+canvas {
+  display: block; border-radius: 10px; max-width: 100%; height: auto;
+  background: #0f172a; touch-action: none;
+}
+.overlay {
+  position: absolute; inset: 0; border-radius: 10px;
+  background: rgba(5, 10, 22, .74);
+  display: flex; flex-direction: column; gap: 14px;
+  align-items: center; justify-content: center;
+}
+.overlay-text { font-size: 20px; font-weight: 700; }
+#overlayBtn, #backBtn { width: auto; padding: 9px 22px; margin-top: 0; }
+
+.panel {
+  flex: 1 1 220px; min-width: 220px; max-width: 260px;
+  background: #111a2e; border: 1px solid #24304d; border-radius: 12px; padding: 14px;
+}
+.panel h3 {
+  font-size: 12px; color: #93a2c4; margin: 6px 0 8px;
+  text-transform: uppercase; letter-spacing: .06em;
+}
+.panel ul { list-style: none; max-height: 200px; overflow: auto; }
+.panel li { display: flex; align-items: center; gap: 8px; padding: 4px 0; font-size: 13px; }
+.panel li.me { color: #fbbf24; }
+.panel li.dead { opacity: .55; }
+.dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; flex: none; }
+.pname { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pscore { font-variant-numeric: tabular-nums; }
+#eventLog li { color: #7c8bb0; line-height: 1.5; }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>多人在线贪吃蛇</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<header>
+  <h1 id="page-title">多人在线贪吃蛇</h1>
+  <p id="page-subtitle">多房间对战 · 食物数量在线可调 · 慢中快三档速度 · 空格暂停/重新开始</p>
+</header>
+<main>
+  <section id="room-panel" class="panel">
+    <h2 id="room-heading">房间</h2>
+    <div class="field">
+      <label for="name-input">昵称</label>
+      <input id="name-input" name="name" type="text" maxlength="12" value="" autocomplete="off" />
+    </div>
+    <div class="field">
+      <label for="room-input">房间名</label>
+      <input id="room-input" name="room" type="text" maxlength="16" value="lobby" autocomplete="off" />
+    </div>
+    <button id="join-btn" type="button">加入房间</button>
+    <h3 id="room-list-heading">在线房间</h3>
+    <ul id="room-list"></ul>
+  </section>
+
+  <section id="game-panel" class="panel">
+    <h2 id="game-heading">游戏画面</h2>
+    <canvas id="board" width="900" height="660" tabindex="0" aria-label="贪吃蛇棋盘"></canvas>
+    <p id="status" role="status">正在连接服务器…</p>
+    <p id="score">得分：0</p>
+  </section>
+
+  <section id="controls-panel" class="panel">
+    <h2 id="controls-heading">控制</h2>
+    <div class="field">
+      <label for="food-slider">食物数量：<span id="food-value">5</span></label>
+      <input id="food-slider" type="range" min="1" max="20" step="1" value="5" />
+    </div>
+    <div id="speed-group" role="group" aria-label="蛇的速度">
+      <button id="speed-slow" class="speed-btn" type="button" data-speed="slow" aria-pressed="false">慢</button>
+      <button id="speed-medium" class="speed-btn" type="button" data-speed="medium" aria-pressed="false">中</button>
+      <button id="speed-fast" class="speed-btn" type="button" data-speed="fast" aria-pressed="false">快</button>
+    </div>
+    <p id="hint">空格键：暂停 / 继续；蛇死亡后按空格键重新开始。方向键或 WASD 控制方向。</p>
+  </section>
+</main>
+<script src="./app.js"></script>
+</body>
+</html>
